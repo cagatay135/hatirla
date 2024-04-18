@@ -16,8 +16,8 @@ export default async function Home() {
             Hatırla!
           </h2>
           <blockquote className="mt-6 border-l-2 pl-6 italic">
-            "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
-            consectetur, adipisci velit..."
+            Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
+            consectetur, adipisci velit...
           </blockquote>
           <div className="grid gap-4 place-items-center mt-5">
             <Select defaultValue="2024">
