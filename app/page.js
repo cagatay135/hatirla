@@ -1,11 +1,5 @@
 import TimeLine from "@/components/ui/timeline";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import SelectYear from "@/components/selectYear";
 
 export default async function Home() {
   return (
@@ -20,18 +14,7 @@ export default async function Home() {
             consectetur, adipisci velit...
           </blockquote>
           <div className="grid gap-4 place-items-center mt-5">
-            <Select defaultValue="2024">
-              <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Theme" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="2024">2024</SelectItem>
-                <SelectItem value="2023">2023</SelectItem>
-                <SelectItem value="2022">2022</SelectItem>
-                <SelectItem value="2021">2021</SelectItem>
-                <SelectItem value="2020">2020</SelectItem>
-              </SelectContent>
-            </Select>
+            <SelectYear />
           </div>
 
           <TimeLine year={2024} />
