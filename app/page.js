@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import TimeLine from "@/components/ui/timeline";
 import SelectYear from "@/components/selectYear";
+import ChangeCaseView from "@/components/ChangeCaseView";
 import { getCases } from "../supabaseService";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
   const [cases, setSelectedCases] = useState([]);
   const [filteredCases, setFilteredCase] = useState([]);
   const [years, setYears] = useState([]);
+  const [viewType, setViewType] = useState("list");
 
   const handleYearChange = (value) => {
     setSelectedYear(value);
@@ -47,6 +49,14 @@ export default function Home() {
     return uniqueYears;
   };
 
+  const getViewContent = () => {
+    if (viewType === "list") {
+      return <TimeLine cases={filteredCases} />;
+    } else if (viewType === "calendar") {
+      return <div>Calendar View</div>;
+    }
+  };
+
   return (
     <div className="grid place-items-center p-10">
       <div className="grid grid-cols-1 gap-4">
@@ -60,11 +70,11 @@ export default function Home() {
             changeYear={handleYearChange}
           />
         </div>
-        <div>
-          <div>
-            <TimeLine cases={filteredCases} />
-          </div>
+        <div className="flex justify-center">
+          <ChangeCaseView setViewType={setViewType} />
         </div>
+
+        <div>{getViewContent()}</div>
       </div>
     </div>
   );

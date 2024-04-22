@@ -35,11 +35,9 @@ export default function TimeLine({ cases }) {
               />
               <div className="text-gray-600 dark:text-gray-400 ml-10">
                 <div className="text-md font-normal">
-                  <span className="text-gray-900 dark:text-white">
-                    {caseRecord.title}
-                  </span>
+                  <span className="font-bold">{caseRecord.title}</span>
                 </div>
-                <span className="mt-2 inline-flex items-center text-sm font-normal text-gray-300">
+                <span className="mt-2 inline-flex items-center text-sm font-semibold">
                   {new Date(
                     Date.parse(caseRecord.case_date)
                   ).toLocaleDateString("tr-TR", dateFormat)}

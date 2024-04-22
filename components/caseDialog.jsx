@@ -2,7 +2,6 @@ import { Badge } from "@/components/ui/badge";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
@@ -19,26 +18,24 @@ export function CaseDialog({ open, setOpen, caseRecord }) {
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Olay : {caseRecord?.title}</DialogTitle>
-          <DialogDescription>
-            <div className="mt-2">
-              <p className="text-gray-100">
-                Tarih :{" "}
-                {new Date(Date.parse(caseRecord?.case_date)).toLocaleDateString(
-                  "tr-TR",
-                  dateFormat
-                )}
-              </p>
-              {caseRecord?.tags && (
-                <p className="text-gray-100 mt-3">
-                  Türü : <Badge className="ml-2">{caseRecord?.tags}</Badge>
-                </p>
+          <div className="mt-2 font-medium">
+            <p>
+              Tarih :{" "}
+              {new Date(Date.parse(caseRecord?.case_date)).toLocaleDateString(
+                "tr-TR",
+                dateFormat
               )}
-            </div>
-          </DialogDescription>
+            </p>
+            {caseRecord?.tags && (
+              <p className="mt-3">
+                Türü : <Badge className="ml-2">{caseRecord?.tags}</Badge>
+              </p>
+            )}
+          </div>
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div className="grid">
-            <span>
+            <span className="font-semibold">
               Kaynak :{" "}
               <a href={caseRecord?.news_link}>{caseRecord?.news_link}</a>
             </span>
