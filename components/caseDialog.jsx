@@ -8,6 +8,12 @@ import {
 } from "@/components/ui/dialog";
 
 export function CaseDialog({ open, setOpen, caseRecord }) {
+  const dateFormat = {
+    year: "numeric",
+    month: "long",
+    day: "2-digit",
+  };
+
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent>
@@ -15,9 +21,15 @@ export function CaseDialog({ open, setOpen, caseRecord }) {
           <DialogTitle>Olay : {caseRecord?.title}</DialogTitle>
           <DialogDescription>
             <div className="mt-2">
-              <p> Tarih : {caseRecord?.case_date}</p>
+              <p className="text-gray-100">
+                Tarih :{" "}
+                {new Date(Date.parse(caseRecord.case_date)).toLocaleDateString(
+                  "tr-TR",
+                  dateFormat
+                )}
+              </p>
               {caseRecord?.tags && (
-                <p className="mt-3">
+                <p className="text-gray-100 mt-3">
                   Türü : <Badge className="ml-2">{caseRecord?.tags}</Badge>
                 </p>
               )}

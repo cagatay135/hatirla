@@ -16,6 +16,12 @@ export default function TimeLine({ cases }) {
     setOpen(true);
   };
 
+  const dateFormat = {
+    year: "numeric",
+    month: "long",
+    day: "2-digit",
+  };
+
   return (
     <div className="mt-10">
       {cases.length > 0 &&
@@ -34,7 +40,9 @@ export default function TimeLine({ cases }) {
                   </span>
                 </div>
                 <span className="mt-2 inline-flex items-center text-sm font-normal text-gray-300">
-                  {caseRecord.case_date}
+                  {new Date(
+                    Date.parse(caseRecord.case_date)
+                  ).toLocaleDateString("tr-TR", dateFormat)}
                 </span>
                 {caseRecord?.tags && (
                   <Badge className="mt-3 ml-5">{caseRecord.tags}</Badge>
