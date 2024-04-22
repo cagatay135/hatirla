@@ -20,7 +20,7 @@ export default function TimeLine({ cases }) {
     <div className="mt-10">
       {cases.length > 0 &&
         cases.map((caseRecord) => (
-          <Card className="w-[850px] mb-10 pr-5">
+          <Card className="w-[850px] mb-10 pr-5" key={caseRecord.id}>
             <CardContent className="flex p-0 items-center ">
               <img
                 className="object-contain h-30 w-40 rounded-lg sm:mb-0"
