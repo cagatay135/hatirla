@@ -1,6 +1,3 @@
-"use client";
-
-import React, { useState } from "react";
 import {
   Select,
   SelectContent,
@@ -10,25 +7,27 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-export default function SelectYear() {
-  const [selectedYear, setSelectedYear] = useState("2024");
-
+export default function SelectYear({ years, currentYear, changeYear }) {
   const handleChange = (value) => {
-    setSelectedYear(value);
+    changeYear(value);
   };
 
   return (
-    <Select value={selectedYear} onValueChange={handleChange}>
-      <SelectTrigger className="w-[180px]">
-        <SelectValue>{selectedYear || "Select a year"}</SelectValue>
+    <Select
+      value={currentYear}
+      onValueChange={handleChange}
+      className="text-center"
+    >
+      <SelectTrigger className="w-[250px]">
+        <SelectValue className="text-center">{currentYear}</SelectValue>
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          <SelectItem value="2024">2024</SelectItem>
-          <SelectItem value="2023">2023</SelectItem>
-          <SelectItem value="2022">2022</SelectItem>
-          <SelectItem value="2021">2021</SelectItem>
-          <SelectItem value="2020">2020</SelectItem>
+          {years.map((y) => (
+            <SelectItem key={y} value={y}>
+              {y}
+            </SelectItem>
+          ))}
         </SelectGroup>
       </SelectContent>
     </Select>
