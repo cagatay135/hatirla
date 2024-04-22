@@ -23,7 +23,7 @@ export function CaseDialog({ open, setOpen, caseRecord }) {
             <div className="mt-2">
               <p className="text-gray-100">
                 Tarih :{" "}
-                {new Date(Date.parse(caseRecord.case_date)).toLocaleDateString(
+                {new Date(Date.parse(caseRecord?.case_date)).toLocaleDateString(
                   "tr-TR",
                   dateFormat
                 )}
