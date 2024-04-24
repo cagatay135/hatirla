@@ -4,7 +4,6 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 export default function ChangeCaseView({ setViewType }) {
   const handleViewChange = (value) => {
-    console.log(value);
     setViewType(value);
   };
 

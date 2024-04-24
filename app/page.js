@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import TimeLine from "@/components/ui/timeline";
 import SelectYear from "@/components/selectYear";
 import ChangeCaseView from "@/components/ChangeCaseView";
+import CalendarView from "@/components/CalendarView";
 import { getCases } from "../supabaseService";
 
 export default function Home() {
@@ -53,7 +54,7 @@ export default function Home() {
     if (viewType === "list") {
       return <TimeLine cases={filteredCases} />;
     } else if (viewType === "calendar") {
-      return <div>Calendar View</div>;
+      return <CalendarView />;
     }
   };
 
